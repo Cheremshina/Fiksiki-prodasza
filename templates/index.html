@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин Фиксиков</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .product { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .product h3 { margin: 0 0 5px; }
+        .price { color: #e63946; font-weight: bold; }
+        a.btn { display: inline-block; background: #457b9d; color: #fff; padding: 8px 14px;
+                text-decoration: none; border-radius: 6px; margin-top: 8px; }
+        nav a { margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Магазин Фиксиков</h1>
+    <nav>
+        <a href="/">Каталог</a>
+        <a href="/cart">Корзина</a>
+    </nav>
+    <hr>
+    {% for id, p in products.items() %}
+        <div class="product">
+            <h3>{{ p.name }}</h3>
+            <p>{{ p.desc }}</p>
+            <p class="price">{{ p.price }} ₽</p>
+            <a class="btn" href="/add/{{ id }}">В корзину</a>
+        </div>
+    {% endfor %}
+</body>
+</html>
